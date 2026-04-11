@@ -13,7 +13,7 @@ async function sendData() {
   btn.disabled = true;
 
   try {
-    const res = await fetch("http://localhost:3000/api/negotiate", {
+    const res = await fetch("/api/negotiate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Coach</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+        <h1>AI Salary Negotiation Coach</h1>
+        <form onsubmit="sendData(); return false;">
+            <input id="role" placeholder="Role">
+            <input id="experience" placeholder="Experience">
+            <input id="currentSalary" placeholder="Current Salary">
+            <input id="offeredSalary" placeholder="Offered Salary">
+            <input id="location" placeholder="Location">
+            <textarea id="userQuestion" placeholder="Ask any question..." rows="4"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

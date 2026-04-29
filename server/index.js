@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const cors = require('cors');
+const path = require('path');
 const { generateNegotiationResponse } = require('./services/geminiService');
 
 const app = express();
@@ -10,8 +11,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve the static files from the client folder
+app.use(express.static(path.join(__dirname, '../client')));
+
+// Explicitly send index.html for the root route
 app.get("/", (req, res) => {
-    res.send("Server working");
+    res.sendFile(path.join(__dirname, '../client/index.html'));
 })
 
 app.post("/api/negotiate", async (req, res) => {

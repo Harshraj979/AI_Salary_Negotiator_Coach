@@ -1,27 +1,23 @@
 const express = require('express');
 const dotenv = require('dotenv');
-dotenv.config(); // Must be called before requiring services that use process.env
+dotenv.config();
 
 const cors = require('cors');
-const path = require('path');
 const { generateNegotiationResponse } = require('./services/geminiService');
 
-const app=express();
+const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Serve the static files from the client folder
-app.use(express.static(path.join(__dirname, '../client')));
-
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("Server working");
 })
 
-app.post("/api/negotiate", async (req,res)=>{
-    const data=req.body;
+app.post("/api/negotiate", async (req, res) => {
+    const data = req.body;
 
-    console.log("Recieved data: ",data);
+    console.log("Recieved data: ", data);
 
     try {
         const reply = await generateNegotiationResponse(data);
@@ -37,6 +33,6 @@ app.post("/api/negotiate", async (req,res)=>{
 })
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 })

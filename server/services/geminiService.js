@@ -13,7 +13,7 @@ async function generateNegotiationResponse(userData) {
             ? userData.question 
             : "Provide a complete salary negotiation strategy based on my profile.";
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
+            model: "gemini-flash-latest",
             contents: [
                 {
                     role: "user",
